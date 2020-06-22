@@ -5,7 +5,7 @@ let options = {
 
 // ================ consume data with Promise =================
 
-let demoUl = document.querySelector('#list ul');
+let demoUl = document.querySelector('#list ol');
 
 fetch(endpoint, options)
     .then((response) => response.json())
@@ -13,9 +13,13 @@ fetch(endpoint, options)
         console.log(results);
         results.forEach((result) => {
             const li = document.createElement('li');
+            const p = document.createElement('p');
+            const text = document.createTextNode(result.name);
             const img = document.createElement('img');
 
+
             img.setAttribute('src', result.flag);
+            li.appendChild(text);
             li.appendChild(img);
             demoUl.appendChild(li);
 
